@@ -1,7 +1,16 @@
 #include<string.h>
 #include<stdio.h>
 #include<stdlib.h>
+#include<math.h>
 #define MAXN 10000
+
+int f(int n) {
+    const int gg[10] = {1,1,2,6,4,4,4,8,4,6};
+    if (n <= 1) return 1;
+    int g = gg[n%10] * pow(2, 4 - (n/5)%4);
+    return f(n/5) * g % 10;
+}
+
 int lastdigit(char* buf)
 {
     /*
