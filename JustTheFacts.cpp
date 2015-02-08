@@ -4,6 +4,16 @@
 #include<math.h>
 #define MAXN 10000
 
+int get_last_num(int n)
+{
+    unsigned m,a,r[]={6,2,4,8};
+    m=n;
+
+    for(a=0;m;m/=5)
+        a+=(m%5==2)+(m%5==4)*2+m/5;
+    return ((n>1)?r[a%4]:1);
+}
+
 int f(int n) {
     const int gg[10] = {1,1,2,6,4,4,4,8,4,6};
     if (n <= 1) return 1;
